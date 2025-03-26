@@ -24,7 +24,7 @@ export default function TaskList(props) {
       />
 
       {/* Task Name */}
-      <div>{task.name}</div>
+      <div className="flex-grow">{task.name}</div>
 
       {/* Status Label */}
       <div
