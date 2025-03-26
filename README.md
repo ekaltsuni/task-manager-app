@@ -16,7 +16,7 @@ The application allows users to:
 Install and run this project locally by following these steps:
 
 1. Clone the repository: 'git clone https://github.com/ekaltsuni/task-manager.git'
-2. Navigate to the project directory 'cd task-manager'
+2. Navigate to the project directory 'cd task-manager-app'
 3. Install dependencies: 'npm install'
 4. Run the application: 'npm run dev'
-5. Open your browser and go to http://localhost:5173/
+5. Open your browser and go to http://localhost:5173/ (default port)

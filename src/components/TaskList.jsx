@@ -7,7 +7,7 @@ export default function TaskList(props) {
     if (tasks.length === 0) {
       console.log("Your list is empty");
     }
-  }, [tasks]); // Runs every time `tasks` changes
+  }, [tasks]); // Runs every time tasks changes
 
   /* Map tasks so that they appear on screen as a list */
   const taskListItems = tasks.map((task) => (
@@ -22,20 +22,20 @@ export default function TaskList(props) {
         onChange={() => toggleComplete(task.name)}
         className="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-teal-400 checked:bg-teal-400 checked:before:bg-teal-400 hover:before:opacity-10"
       />
-      <span
-        className={`text-gray-800 flex-grow ${
-          task.completed ? "line-through text-gray-400" : ""
-        }`}
-      ></span>
 
       {/* Task Name */}
-      <span
-        className={`text-gray-800 flex-grow ${
-          task.completed ? "line-through text-gray-400" : ""
+      <div>{task.name}</div>
+
+      {/* Status Label */}
+      <div
+        className={`text-xs font-bold px-2 py-1 rounded-lg ${
+          task.completed
+            ? "bg-green-100 text-teal-400"
+            : "bg-yellow-100 text-yellow-400"
         }`}
       >
-        {task.name}
-      </span>
+        {task.completed ? "Completed" : "Pending"}
+      </div>
 
       {/* Trash Icon */}
 
@@ -50,13 +50,12 @@ export default function TaskList(props) {
 
   return (
     <section>
+      <h2>My tasks</h2>
       {tasks.length === 0 ? (
         <p>Your list is empty.</p>
       ) : (
-        <div className="show-task-list">
-          <ul className="task-list" aria-live="polite">
-            {taskListItems}
-          </ul>
+        <div className="show-task-list font-light size-1.2">
+          <ul className="task-list">{taskListItems}</ul>
         </div>
       )}
     </section>
